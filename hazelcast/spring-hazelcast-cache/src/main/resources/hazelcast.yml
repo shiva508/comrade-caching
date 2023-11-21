@@ -1,0 +1,52 @@
+hazelcast:
+  cluster-name: dev-shiva-1
+  network:
+    rest-api:
+      enabled: true
+      endpoint-groups:
+        DATA:
+          enabled: true
+        CLUSTER_READ:
+          enabled: true
+        CLUSTER_WRITE:
+          enabled: true
+        HEALTH_CHECK:
+          enabled: true
+        HOT_RESTART:
+          enabled: true
+        WAN:
+          enabled: true
+        CP:
+          enabled: true
+
+    join:
+      multicast:
+        enabled: true
+#  listeners:
+#    - com.comrade.event.ComradeClusterMembershipListener
+#    - com.comrade.event.ComradeDistributedObjectListener
+#    - com.comrade.event.ComradeClusterMigrationListener
+#    - com.comrade.event.ComradeLoggingPartitionLostListener
+#    - com.comrade.event.ComradeNodeLifecycleListener
+#  properties:
+#    hazelcast.logging.type: slf4j
+#  network:
+#    public-address: 11.22.33.44:5556
+#    join:
+#      multicast:
+#        enabled: true
+  map:
+    rextax:
+      map-store:
+        enabled: true
+        initial-mode: EAGER
+        class-name: com.comrade.config.ProcessingStore
+#      entry-listeners:
+#        - class-name: com.comrade.event.ComradeEntryListener
+#          include-value: false
+#          local: false
+#  set:
+#    default:
+#      item-listeners:
+#        - class-name: com.comrade.event.ComradeItemListener
+#          include-value: true

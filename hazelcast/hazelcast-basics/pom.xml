@@ -15,6 +15,7 @@
         <module>distributed-data-structures</module>
         <module>distributed-events</module>
         <module>sql</module>
+        <module>cdc-postgresql</module>
     </modules>
     <artifactId>hazelcast-basics</artifactId>
 
@@ -23,13 +24,6 @@
         <maven.compiler.target>17</maven.compiler.target>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
     </properties>
-    <dependencies>
-        <dependency>
-            <groupId>com.hazelcast</groupId>
-            <artifactId>hazelcast-all</artifactId>
-            <version>4.2.8</version>
-        </dependency>
-    </dependencies>
     <build>
         <plugins>
             <plugin>
