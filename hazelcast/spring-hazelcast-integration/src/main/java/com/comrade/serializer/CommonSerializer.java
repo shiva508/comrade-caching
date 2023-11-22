@@ -1,6 +1,6 @@
 package com.comrade.serializer;
 
-import com.comrade.model.CommandResponse;
+import com.comrade.entity.CommandResponse;
 import com.hazelcast.nio.ObjectDataInput;
 import com.hazelcast.nio.ObjectDataOutput;
 import com.hazelcast.nio.serialization.StreamSerializer;

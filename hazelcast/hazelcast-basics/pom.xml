@@ -16,6 +16,7 @@
         <module>distributed-events</module>
         <module>sql</module>
         <module>cdc-postgresql</module>
+        <module>cdc-debezium</module>
     </modules>
     <artifactId>hazelcast-basics</artifactId>
 

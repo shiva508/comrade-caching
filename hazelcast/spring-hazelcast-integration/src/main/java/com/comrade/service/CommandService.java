@@ -1,14 +1,12 @@
 package com.comrade.service;
 
-import com.comrade.model.CommandResponse;
+import com.comrade.entity.CommandResponse;
 import jakarta.annotation.PostConstruct;
 import org.springframework.cache.annotation.Cacheable;
 import org.springframework.stereotype.Component;
 
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.List;
-import java.util.stream.Collectors;
 import java.util.stream.IntStream;
 
 @Component

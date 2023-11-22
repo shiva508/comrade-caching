@@ -1,4 +1,4 @@
-package com.comrade.model;
+package com.comrade.entity;
 
 import lombok.AllArgsConstructor;
 import lombok.Builder;

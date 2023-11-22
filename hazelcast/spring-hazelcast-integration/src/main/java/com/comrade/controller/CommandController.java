@@ -1,6 +1,6 @@
 package com.comrade.controller;
 
-import com.comrade.model.CommandResponse;
+import com.comrade.entity.CommandResponse;
 import com.comrade.service.CommandService;
 import com.hazelcast.core.HazelcastInstance;
 import org.springframework.beans.factory.annotation.Autowired;

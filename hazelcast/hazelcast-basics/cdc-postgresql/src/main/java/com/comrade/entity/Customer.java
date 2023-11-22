@@ -1,4 +1,4 @@
-package com.comrade.model;
+package com.comrade.entity;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
 

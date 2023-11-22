@@ -1,6 +1,6 @@
 package com.comrade;
 
-import com.comrade.model.Customer;
+import com.comrade.entity.Customer;
 import com.hazelcast.core.Hazelcast;
 import com.hazelcast.core.HazelcastInstance;
 import com.hazelcast.jet.cdc.CdcSinks;

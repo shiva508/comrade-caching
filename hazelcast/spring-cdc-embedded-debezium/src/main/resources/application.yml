@@ -1,0 +1,34 @@
+server:
+  port: 8084
+  tomcat:
+    connection-timeout: 2s
+    keep-alive-timeout: 15s
+    threads:
+      min-spare: 5
+      max: 50
+spring:
+  application:
+    name: dear-comrade-topic
+  datasource:
+    username: postgres
+    password: postgres
+    url: jdbc:postgresql://localhost:5432/postgres
+    driver-class-name: org.postgresql.Driver
+    hikari:
+      connection-timeout: 2000
+      maximum-pool-size: 5
+  jpa:
+    properties:
+      hibernate:
+        dialect: org.hibernate.dialect.PostgreSQLDialect
+    hibernate:
+      ddl-auto: update
+      show-sql: true
+
+customer:
+  datasource:
+    host: localhost
+    port: 5432
+    database: postgres
+    username: postgres
+    password: postgres
