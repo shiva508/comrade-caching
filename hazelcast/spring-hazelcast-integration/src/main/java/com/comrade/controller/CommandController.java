@@ -38,4 +38,9 @@ public class CommandController {
     public CommandResponse commandResponse(@PathVariable("val") String val){
         return commandService.getResponseByValue(val);
     }
+
+    @PostMapping("/add")
+    public CommandResponse saveData(@RequestBody CommandResponse commandResponse){
+        return commandResponse;
+    }
 }
