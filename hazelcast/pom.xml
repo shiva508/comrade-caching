@@ -17,6 +17,7 @@
         <module>hazelcast-basics</module>
         <module>spring-cdc-embedded-debezium</module>
         <module>spring-integration-debezium-support</module>
+        <module>mysql-cdc-embedded-debezium</module>
     </modules>
 
     <properties>

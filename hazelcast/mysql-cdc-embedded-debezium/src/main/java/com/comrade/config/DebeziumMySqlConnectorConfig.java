@@ -7,31 +7,35 @@ import java.io.File;
 import java.io.IOException;
 
 @Configuration
-public class DebeziumPostgresConnectorConfig {
+public class DebeziumMySqlConnectorConfig {
 
     @Autowired
-    private CustomerPostgresConfig customerPostgresConfig;
+    private CustomerMySqlConfig customerMySqlConfig;
 
     @Bean(name = "customerConnector")
     public io.debezium.config.Configuration customerConnector() throws IOException {
 
-        File offsetStorageTempFile = File.createTempFile("offsets_", ".dat");
-        File dbHistoryTempFile = File.createTempFile("dbhistory_", ".dat");
+        File offsetStorageTempFile = File.createTempFile("offsetssql_", ".dat");
+        File dbHistoryTempFile = File.createTempFile("dbhistorysql_", ".dat");
         return io.debezium.config.Configuration.create()
-                //WORKING
-                .with("name", "engine")
-                .with("offset.storage", "org.apache.kafka.connect.storage.FileOffsetBackingStore").with("connector.class", "io.debezium.connector.postgresql.PostgresConnector")
+                .with("name", "mysql-engine")
+                .with("topic.prefix", "mysql-connector")
+                .with("offset.storage", "org.apache.kafka.connect.storage.FileOffsetBackingStore")
+                .with("connector.class", "io.debezium.connector.mysql.MySqlConnector")
                 .with("offset.storage.file.filename", offsetStorageTempFile.getAbsolutePath())
                 .with("offset.flush.interval.ms", "60000")
-                .with("database.hostname", customerPostgresConfig.getHost())
-                .with("database.port", customerPostgresConfig.getPort())
-                .with("database.user", customerPostgresConfig.getUsername())
-                .with("database.password", customerPostgresConfig.getPassword())
-                .with("database.dbname", customerPostgresConfig.getDatabase())
-                .with("database.server.id", "85744")
-                .with("topic.prefix", "my-app-connector")
+                .with("database.hostname", customerMySqlConfig.getHost())
+                .with("database.port", customerMySqlConfig.getPort())
+                .with("database.user", customerMySqlConfig.getUsername())
+                .with("database.password", customerMySqlConfig.getPassword())
+                .with("database.dbname", customerMySqlConfig.getDatabase())
+                .with("database.server.id", "85745")
+                .with("include.schema.changes", "false")
+                .with("errors.log.include.messages", "true")
+                .with("table.include.list","customerdb.customer")
                 .with("schema.history.internal", "io.debezium.storage.file.history.FileSchemaHistory")
-                .with("schema.history.internal.file.filename", dbHistoryTempFile.getAbsolutePath()).build();
+                .with("schema.history.internal.file.filename", dbHistoryTempFile.getAbsolutePath())
+                .build();
         //WORKING
         //NEED TO TRY WITH BELLOW
         /*.with("name", "customer-postgres-connector")
